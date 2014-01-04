@@ -21,19 +21,28 @@ angular.module('myApp.controllers', ['firebase']).
   .controller('createCtrl', function($scope,$firebase,$location,$log) {
          var ref = new Firebase("https://cinchteams.firebaseio.com/schools");
          var names = new Firebase("https://cinchteams.firebaseio.com/names");
+         var d=new Date();
          $scope.schools = $firebase(ref);
          $scope.names = $firebase(names);
          $scope.addPerson = function(e) {
          $log.log($scope.selectedSchool);
          $log.log($scope.firstname);
          $log.log($scope.lastname);
+         $log.log($scope.comment);
+         $log.log($scope.communication);
          var temp = $scope.names.$add({"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool});
          var nameString = temp.name();
          var newName = new Firebase("https://cinchteams.firebaseio.com/" + nameString);
         newName.transaction(function(currentData) {
         if (currentData === null) {
-               //$log.log(temp.name());
-               return {nameString : {"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool} };
+               
+               return {"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool, "responses" : {"comment" : $scope.comment,
+        "communication" : $scope.communication,
+        "attitude" : $scope.attitude,
+        "overall" : $scope.overall,
+        "time" : $scope.time,
+        "ease" : $scope.ease,
+        "date": String(d.toUTCString())}};
         } else {
                console.log('User already exists.');
                return; // Abort the transaction.

@@ -1,12 +1,35 @@
-<h1>Add a New Teammate</h1>
-<form ng-submit="addPerson()">
+<h1>Add a New Teammate (and review)</h1>
+<form name="formie" ng-submit="addPerson()" novalidate>
    <table>
    <tr>
    <td>First Name:</td><td><input ng-model="firstname"></td></tr>
    <td>Last Name:</td><td><input ng-model="lastname"></td></tr>
    <td>School:</td><td><select ng-model="selectedSchool">
-             <option value="{{school}}" ng-repeat="school in schools">{{school}}</option>
-          </select></td></tr></table>
+                          <option value="{{school}}" ng-repeat="school in schools">{{school}}</option>
+                       </select></td></tr>
+   </table>
+   <table>
+      <tr>
+         <td>Easy to work with:</td><td><input type="number" name="ease" ng-model="ease" ng-minlength = 1 max="5" min="0" required></td>
+         </tr>
+         <tr>
+         <td>Communication Skills:</td><td><input type="number" name="communication" ng-model="communication" ng-minlength = 1 max="5" min="0" required></td>
+         </tr>
+         <tr>
+         <td>Time Conscious:</td><td><input type="number" name="name" ng-model="time" ng-minlength=1 max="5" min="0" required></td>
+         </tr>
+         <tr>
+         <td>Attitude:</td><td><input type="number" name="attitude" ng-model="attitude" ng-minlength = 1 max="5" min="0" required></td>
+         </tr>
+         <tr>
+         <td>Overall:</td><td><input type="number" name="overall" ng-model="overall" ng-minlength = 1 max="5" min="0" required></td>
+         </tr>
+         <tr>
+         <td>Comments:</td><td><textarea name="comment" ng-model="comment" cols="40" rows="5" ng-minlength = 10 required></textarea></td>
+         <td></td>
+         </tr>
+   </table>
    <button>Add Teammate</button>
 </form>
-* If your school isn't listed, we're not ready for you
+* If your school isn't listed, we're not ready for you <br />
+* Note: Values are 0 - 5 for the review!
