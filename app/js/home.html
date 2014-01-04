@@ -1,0 +1,27 @@
+<div>
+      <h2>Input Format: {Hemisphere}{HH}{MM}{SS} </h2>
+      <br />
+      <label>Latitude:</label>
+      <input type="text" ng-model="hhmmss.lahemisphere" placeholder="+/-" ngPattern="/\+\-/">
+      <input type="number" ng-model="hhmmss.lahours" placeholder="Hours">
+      <input type="number" ng-model="hhmmss.laminutes" placeholder="Minutes">
+      <input type="number" ng-model="hhmmss.laseconds" placeholder="Seconds">
+      <br />
+      <label>Longitude:</label>
+      <input type="text" ng-model="hhmmss.lohemisphere" placeholder="+/-" ngPattern="/\+\-/">
+      <input type="number" ng-model="hhmmss.lohours" placeholder="Hours">
+      <input type="number" ng-model="hhmmss.lominutes" placeholder="Minutes">
+      <input type="number" ng-model="hhmmss.loseconds" placeholder="Seconds">
+      <hr>
+    </div>
+    <div>
+      <h2>Output Format: {Hemisphere}{HH.HH} </h2>
+      <h3 ng-cloak><label>Latitude: </label> {{hhmmss.lahemisphere + (+hhmmss.lahours + (+hhmmss.laminutes + (+hhmmss.laseconds/60))/60)}}</h3>
+      <h3><label>Longitude: </label>{{hhmmss.lohemisphere + (+hhmmss.lohours + (+hhmmss.lominutes + (+hhmmss.loseconds/60))/60)}}</h3>
+    </div>
+    <div>
+      <h2>Output Format: {Hemisphere}{HH}{MM.MM} </h2>
+      <h3><label>Latitude:  </label>{{hhmmss.lahemisphere + hhmmss.lahours + " " + (hhmmss.laminutes + (hhmmss.laseconds/60))}}</h3>
+      <h3><label>Longitude: </label>{{hhmmss.lohemisphere + hhmmss.lohours + " " + (hhmmss.lominutes + (hhmmss.loseconds/60))}}</h3>
+    </div>
+</div

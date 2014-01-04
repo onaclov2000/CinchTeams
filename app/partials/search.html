@@ -1,0 +1,24 @@
+Filter by Name:<input ng-model="names"><br />
+Filter by Schools:<input ng-model="schools"><br />
+<div ng-repeat="person in persons | filter:{name:names,school:schools}">
+   
+   <h2>{{person.name}}</h2><a href="#" id="opener">Rate</a><em>({{person.school}})</em>:
+   <div id="lightbox"></div>
+   <br /> 
+   <!-- Eventually print stars here maybe? (like a rating system) -->
+   <!-- <p>How easy is the person to work with?: <input ng-var="ease"></p>
+   <p>How well does the individual communicate?: <input ng-var="communication"></p>
+   <p>Did they complete work within the time constraints?: <input ng-var="time"></p>
+   <p>How was the persons attitude?: <input ng-var="attitude"></p>
+   <p>Overall Score?: <input ng-var="overall"></p>
+   <p>Comments?: <input ng-var="comment"></p>
+   <input type="submit" value="Add comment" action="addperson()" /> -->
+   <div ng-repeat="response in person.responses">
+      Easy to work with: {{response.ease}}<br/>
+      Communication Skills: {{response.communication}}<br/>
+      Time Conscious: {{response.time}}<br/>
+      Attitude: {{response.attitude}}<br/>
+      Overall: {{response.overall}}<br/>
+      Comments:{{response.comment}}<br/>
+      <br>
+</div>

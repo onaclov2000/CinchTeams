@@ -1,0 +1,12 @@
+<h1>Add a New Teammate</h1>
+<form ng-submit="addPerson()">
+   <table>
+   <tr>
+   <td>First Name:</td><td><input ng-model="firstname"></td></tr>
+   <td>Last Name:</td><td><input ng-model="lastname"></td></tr>
+   <td>School:</td><td><select ng-model="selectedSchool">
+             <option value="{{school}}" ng-repeat="school in schools">{{school}}</option>
+          </select></td></tr></table>
+   <button>Add Teammate</button>
+</form>
+* If your school isn't listed, we're not ready for you

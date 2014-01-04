@@ -1,0 +1,6 @@
+<h1>Welcome, scroll to find your teammate, or use the search below</h1>
+Search by Name:<input ng-model="nameFilter"><br />
+<div ng-repeat="(index,name) in names | filter:nameFilter">
+   <a ng-href="#/view/{{index}}">{{name.firstname}} {{name.lastname}}</a>({{name.school}})
+</div>
+<button type="button" class="btn btn-primary" ng-click="create()")>Create a new Entry</button>

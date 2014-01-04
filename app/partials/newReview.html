@@ -1,0 +1,33 @@
+<div>
+   <h2>{{person.firstname}} {{person.lastname}}</h2>
+   <br /> 
+   <form ng-submit="submit()">
+   <table>
+      <tr>
+         <td>Easy to work with:</td><td><input type="number" ng-model="ease" max="5" min="0"></td>
+         </tr>
+         <tr>
+         <td>Communication Skills:</td><td><input type="number" ng-model="communication" max="5" min="0"></td>
+         </tr>
+         <tr>
+         <td>Time Conscious:</td><td><input type="number" ng-model="time" max="5" min="0"></td>
+         </tr>
+         <tr>
+         <td>Attitude:</td><td><input type="number" ng-model="attitude" max="5" min="0"></td>
+         </tr>
+         <tr>
+         <td>Overall:</td><td><input type="number" ng-model="overall" max="5" min="0"></td>
+         </tr>
+         <tr>
+         <td>Comments:</td><td><textarea ng-model="comment" cols="40" rows="5" ></textarea></td>
+         <td></td>
+         </tr>
+         </table>
+         <input type="submit" id="submit" value="Submit" />
+         </form>
+         
+         <ul>
+         <li ng-repeat="response in responses">{{response.comment}}
+         </ul>
+</div>
+*Note: Values are 0 - 5!

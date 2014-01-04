@@ -1,0 +1,52 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.icon-gh {
+    background-image: url("./img/github.png");
+    background-position: center center;
+}
+div.view
+{
+padding:10px;
+border:2px dashed;
+border-radius:10px;
+}

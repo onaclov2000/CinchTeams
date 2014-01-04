@@ -1,0 +1,21 @@
+<h2>{{person.firstname}} {{person.lastname}}</h2><em>({{person.school}})</em>
+<br /> 
+<br />
+<h3><button class="btn btn-primary" ng-click="newReview()">Rate</button></h3>
+<br />
+<br />
+<div ng-repeat="response in person.responses">
+<div class="view">
+<table>
+   <tr><td>Easy to work with:</td><td>{{response.ease}}</td></tr>
+   <tr><td>Communication Skills:</td><td>{{response.communication}}</td></tr>
+   <tr><td>Time Conscious:</td><td>{{response.time}}</td></tr>
+   <tr><td>Attitude:</td><td>{{response.attitude}}</td></tr>
+   <tr><td>Overall:</td><td>{{response.overall}}</td></tr>
+   <tr><td>Comments:</td><td>{{response.comment}}</td></tr>
+   <tr><td>Date:</td><td>{{response.date}}</td></tr>
+</table>
+</div>
+<br />
+<br />
+</div>
