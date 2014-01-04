@@ -18,17 +18,30 @@ angular.module('myApp.controllers', ['firebase']).
          $location.path('/newReview/' + $scope.id);
         };
   })
-  .controller('createCtrl', function($scope,$firebase,$log) {
+  .controller('createCtrl', function($scope,$firebase,$location,$log) {
          var ref = new Firebase("https://cinchteams.firebaseio.com/schools");
          var names = new Firebase("https://cinchteams.firebaseio.com/names");
          $scope.schools = $firebase(ref);
          $scope.names = $firebase(names);
          $scope.addPerson = function(e) {
-           $log.log($scope.selectedSchool);
-           $log.log($scope.firstname);
-           $log.log($scope.lastname);
-           var temp = $scope.names.$add({"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool});
-           $log.log(temp.name());
+         $log.log($scope.selectedSchool);
+         $log.log($scope.firstname);
+         $log.log($scope.lastname);
+         var temp = $scope.names.$add({"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool});
+         var nameString = temp.name();
+         var newName = new Firebase("https://cinchteams.firebaseio.com/" + nameString);
+        newName.transaction(function(currentData) {
+        if (currentData === null) {
+               //$log.log(temp.name());
+               return {nameString : {"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool} };
+        } else {
+               console.log('User already exists.');
+               return; // Abort the transaction.
+        }
+         
+        });
+        $log.log(nameString);
+         $location.path('/view/' + nameString);
         };
   })
   .controller('newReviewCtrl', function($scope,$firebase,$routeParams,$log, $location) {
