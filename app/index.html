@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="template for my webapps">
     <meta name="author" content="Tyson Bailey">
-  <title>My Webapp</title>
+  <title>AngularFire and Firebase Blog Template</title>
   <link rel="stylesheet" href="css/app.css"/>
   <!-- Bootstrap core CSS -->
   <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
-<body>
+<body ng-cloak-auth class="hide">
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -25,6 +25,8 @@
             <li class=""><a href="#/about">About</a></li>
             <li class=""><a href="#/contact">Contact</a></li>
             <li class=""><a href="#/more">More Apps</a></li>
+			<li ng-show-auth="logout"><a href="#/login">login</a></li>
+            <li ng-show-auth="login"><a href="#/account">account</a></li>
           </ul>
 <!--           <form class="navbar-form form-inline pull-right">
             <!-- for now I'm just planning on Github Login's so we'll go from there  background="img/github.png"-->
