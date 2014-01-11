@@ -3,13 +3,14 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['firebase']).
-  controller('homeCtrl', function($scope,$firebase, $log, $location) {
+  controller('homeCtrl', ['$scope', '$firebase', '$log', '$location', function($scope,$firebase, $log, $location) {
      var ref = new Firebase("https://cinchteams.firebaseio.com/names");
+     $log.log("Homoe");
       $scope.names = $firebase(ref);
       $scope.create = function(e){
       $location.path('/create');
       }
-  })
+  }])
   .controller('viewCtrl', function($scope,$firebase,$routeParams, $location, $log) {
      var ref = new Firebase("https://cinchteams.firebaseio.com/" + $routeParams.id);
          $scope.person = $firebase(ref);

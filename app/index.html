@@ -10,7 +10,7 @@
   <!-- Bootstrap core CSS -->
   <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
 </head>
-<body ng-cloak-auth class="hide">
+<body>
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
@@ -28,17 +28,10 @@
 			<li ng-show-auth="logout"><a href="#/login">login</a></li>
             <li ng-show-auth="login"><a href="#/account">account</a></li>
           </ul>
-<!--           <form class="navbar-form form-inline pull-right">
-            <!-- for now I'm just planning on Github Login's so we'll go from there  background="img/github.png"-->
-            <!-- <input type="text" placeholder="Email"> -->
-            <!-- <input type="password" placeholder="Password"> -->
-            <!--<span class="label label-default">Login with</span>-->
-           <!--  <button type="submit" class="btn">Login with Github</button>
-          </form> -->
         </div><!--/.nav-collapse -->
       </div>
     </div>
-  <div ng-controller="homeCtrl">
+  <div>
   <div ng-view></div>
   </div>
 
@@ -48,7 +41,6 @@
      
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="bootstrap/js/bootstrap.js"></script>
-  <!-- <script src="lib/angular/angular.js"></script> -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
    <script src="//cdn.firebase.com/v0/firebase.js"></script>
