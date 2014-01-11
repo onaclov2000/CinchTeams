@@ -5,17 +5,19 @@
 <br />
 <br />
 <div ng-repeat="response in person.responses">
-<div class="view pull-left">
-<table>
+<div class="panel panel-default pull-left">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{response.date}}</h3>
+  </div>
+  <div class="panel-body">
+    <table>
    <tr><td>Easy to work with:</td><td>{{response.ease}}</td></tr>
    <tr><td>Communication Skills:</td><td>{{response.communication}}</td></tr>
    <tr><td>Time Conscious:</td><td>{{response.time}}</td></tr>
    <tr><td>Attitude:</td><td>{{response.attitude}}</td></tr>
    <tr><td>Overall:</td><td>{{response.overall}}</td></tr>
    <tr><td>Comments:</td><td>{{response.comment}}</td></tr>
-   <tr><td>Date:</td><td>{{response.date}}</td></tr>
 </table>
+  </div>
 </div>
-<br />
-<br />
 </div>
