@@ -5,7 +5,7 @@
 angular.module('myApp.controllers', ['firebase']).
   controller('homeCtrl', ['$scope', '$firebase', '$log', '$location', function($scope,$firebase, $log, $location) {
      var ref = new Firebase("https://cinchteams.firebaseio.com/names");
-     $log.log("Homoe");
+     
       $scope.names = $firebase(ref);
       $scope.create = function(e){
       $location.path('/create');
@@ -14,6 +14,7 @@ angular.module('myApp.controllers', ['firebase']).
   .controller('viewCtrl', function($scope,$firebase,$routeParams, $location, $log) {
      var ref = new Firebase("https://cinchteams.firebaseio.com/" + $routeParams.id);
          $scope.person = $firebase(ref);
+         $log.log($scope.person);
          $scope.id = $routeParams.id;  
          $scope.newReview = function(e) {
          $location.path('/newReview/' + $scope.id);
@@ -37,19 +38,22 @@ angular.module('myApp.controllers', ['firebase']).
         newName.transaction(function(currentData) {
         if (currentData === null) {
                
-               return {"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool, "responses" : {"comment" : $scope.comment,
-        "communication" : $scope.communication,
-        "attitude" : $scope.attitude,
-        "overall" : $scope.overall,
-        "time" : $scope.time,
-        "ease" : $scope.ease,
-        "date": String(d.toUTCString())}};
+               return {"firstname" : $scope.firstname, "lastname" : $scope.lastname, "school" : $scope.selectedSchool, "responses" : {}};
         } else {
                console.log('User already exists.');
                return; // Abort the transaction.
         }
          
         });
+        var newReview = new Firebase("https://cinchteams.firebaseio.com/" + nameString + "/responses");
+        $scope.responses = $firebase(newReview);
+        $scope.responses.$add({"comment" : $scope.comment,
+        "communication" : $scope.communication,
+        "attitude" : $scope.attitude,
+        "overall" : $scope.overall,
+        "time" : $scope.time,
+        "ease" : $scope.ease,
+        "date": String(d.toUTCString())});
         $log.log(nameString);
          $location.path('/view/' + nameString);
         };
